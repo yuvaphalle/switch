@@ -35,12 +35,8 @@ function Login(){
             }
           }, [isWeb3Enabled, isAuthenticated, enableWeb3]);
         
-          document.addEventListener("visibilitychange", () => {
-            if (document.visibilityState === "hidden") {
-              window.localStorage.removeItem("WALLETCONNECT_DEEPLINK_CHOICE");
-            }
-          }
-            );
+          
+            
     if(isAuthenticating){
         return (
 
@@ -76,17 +72,24 @@ function Login(){
         </video>
              */}
             <div className="flex flex-col absolute z-50 h-5/6 w-full items-center justify-center space-y-9">
-
+             
             <div class="box-border h-300 w-300 p-20 border-8 items-center justify-center flex flex-col">
 
-           
-            <div className="img-hover-zoom--colorize">
+           <div className="text-green-600  font-bold">
+            SWITCH edu-ID
+           </div>
+            <div className="img-hover-zoom--colorize p-5">
             <Image className = " " src="/images/switch.png" width={400} height={100}  />
             </div>
-
-                <button className="glow-on-hover w-100" onClick={authenticate}>
-                Log in to: edu-ID
+                <div className="flex flex-col space-y-10">
+                <button className=" glow-on-hover md:visible w-100 invisible  " onClick={authenticate}>
+                Login With Metamask
                 </button>
+
+                <button className="glow-on-hover w-100" onClick={() => authWalletConnect()}>
+                Wallet Connect
+                </button>
+                </div>
             </div>
             
             <div>
