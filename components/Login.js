@@ -1,8 +1,46 @@
 import Image from "next/image";
+import React, { useEffect } from "react";
+
 import {useMoralis} from "react-moralis";
 
 function Login(){
-    const { authenticate , isAuthenticating } = useMoralis();
+    const { authenticate , isAuthenticating,isWeb3Enabled,
+        isAuthenticated,
+        user,
+        enableWeb3,
+        Moralis, } = useMoralis();
+
+
+        async function authWalletConnect() {
+            const user = authenticate({
+              provider: "walletconnect",
+              chainId: 56,
+              // mobileLinks: [
+              //   "metamask",
+              //   "trust",
+              //   "rainbow",
+              //   "argent",
+              //   "imtoken",
+              //   "pillar",
+              // ],
+              signingMessage: "Welcome!",
+            });
+            console.log(user);
+          }
+        
+          useEffect(() => {
+            if (!isWeb3Enabled && isAuthenticated) {
+              enableWeb3({ provider: "walletconnect", chainId: 56 });
+              console.log("web3 activated");
+            }
+          }, [isWeb3Enabled, isAuthenticated, enableWeb3]);
+        
+          document.addEventListener("visibilitychange", () => {
+            if (document.visibilityState === "hidden") {
+              window.localStorage.removeItem("WALLETCONNECT_DEEPLINK_CHOICE");
+            }
+          }
+            );
     if(isAuthenticating){
         return (
 
