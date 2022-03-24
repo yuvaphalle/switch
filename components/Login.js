@@ -43,7 +43,7 @@ function Login(){
 
            
             <div className="img-hover-zoom--colorize">
-            <Image className = " " src="/images/SWITCH.PNG" width={400} height={100}  />
+            <Image className = " " src="/images/switch.png" width={400} height={100}  />
             </div>
 
                 <button className="glow-on-hover w-100" onClick={authenticate}>
