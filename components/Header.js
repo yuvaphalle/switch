@@ -10,16 +10,10 @@ function Header() {
   const router = useRouter();
 
   return (
-    <div className="text-left lg:text-center sticky top-0 z-50 ">
+    <div className="text-left lg:text-center  top-0 z-50 ">
       <div className="sticky top-0 p-8 z-50 border-b-2 shadow-sm border-cyan-900 bg-black text-cyan-400">
         <div className=" ">
-          <button
-            type="button"
-            className="glow-on-hover"
-            onClick={() => router.push("/upload")}
-          >
-            Upload
-          </button>
+          
           {/* <div  className="relative h-24 w-24 mx-auto hidden lg:inline-grid">
                     </div> */}
         </div>

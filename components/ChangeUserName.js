@@ -1,4 +1,9 @@
 import { useMoralis } from "react-moralis";
+import { useRouter } from "next/router";
+
+import upload from "../pages/upload";
+
+
 
 <head>
   <script src="alert/dist/alertify.min.js"></script>
@@ -11,6 +16,7 @@ import { useMoralis } from "react-moralis";
 </head>;
 
 function ChangeUserName() {
+
   const { setUserData, isUserUpdating, userError, user } = useMoralis();
 
   const setUsername = () => {
@@ -24,16 +30,24 @@ function ChangeUserName() {
       username,
     });
   };
+  const router = useRouter();
 
   return (
-    <div className="text-sm absolute top-5 right-5 ">
+    <div className="text-sm absolute top-5 right-5 flex flex-grow flex-col p-10 ">
       <button
-        className="hover:opacity-75 hover:text-cyan-800 uppercase decoration-solid	"
+        className="hover:opacity-75 pb-10 hover:text-cyan-800 uppercase decoration-solid	"
         onClick={setUsername}
         disabled={isUserUpdating}
       >
         Change Your UserName
       </button>
+      <button
+            type="button"
+            className="glow-on-hover"
+            onClick={() => router.push("/upload")}
+          >
+            Upload Your Resume
+          </button>
     </div>
   );
 }
