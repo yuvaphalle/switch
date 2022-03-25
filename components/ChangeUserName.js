@@ -35,7 +35,7 @@ function ChangeUserName() {
   return (
     <div className="text-sm absolute top-5 right-5 flex flex-grow flex-col p-10 ">
       <button
-        className="hover:opacity-75 pb-10 hover:text-cyan-800 uppercase decoration-solid	"
+        className="hover:opacity-75 pb-5 hover:text-cyan-800 uppercase decoration-solid	"
         onClick={setUsername}
         disabled={isUserUpdating}
       >
@@ -43,7 +43,7 @@ function ChangeUserName() {
       </button>
       <button
             type="button"
-            className="glow-on-hover"
+            className="md:glow-on-hover hover:text-cyan-800"
             onClick={() => router.push("/upload")}
           >
             Upload Your Resume
